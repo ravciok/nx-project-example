@@ -1,3 +1,3 @@
-export * from './lib/lib.routes';
 
-export * from './lib/contracts/contracts.component';
+export * from './lib/employees';
+export * from './lib/users';

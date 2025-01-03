@@ -1,42 +1,27 @@
-import {
-  Controller,
-  Get,
-  Post,
-  Body,
-  Patch,
-  Param,
-  Delete,
-} from '@nestjs/common';
-import { UsersService } from './users.service';
-import { CreateUserDto } from './dto/create-user.dto';
-import { UpdateUserDto } from './dto/update-user.dto';
+import { Body, Controller, HttpStatus, Param, Post, Res } from '@nestjs/common';
+import { Status, UserOffboardActionBody } from '@nx-project-example/contracts';
+import { EmployeesService } from '../employees/employees.service';
 
-@Controller('users')
+@Controller('users/:id')
 export class UsersController {
-  constructor(private readonly usersService: UsersService) {}
+  constructor(private readonly employeesService: EmployeesService) {}
 
-  @Post()
-  create(@Body() createUserDto: CreateUserDto) {
-    return this.usersService.create(createUserDto);
-  }
+  @Post('offboard')
+  async offboardAction(
+    @Res() res,
+    @Param('id') id: string,
+    @Body() body: UserOffboardActionBody
+  ) {
+    console.log('body:', body);
 
-  @Get()
-  findAll() {
-    return this.usersService.findAll();
-  }
+    const employee = await this.employeesService.updateOne(id, {
+      status: Status.OFFBOARDED,
+    });
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.usersService.findOne(+id);
-  }
-
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
-    return this.usersService.update(+id, updateUserDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.usersService.remove(+id);
+    if (employee === undefined) {
+      res.status(HttpStatus.BAD_REQUEST).send();
+    } else {
+      res.status(HttpStatus.OK).end();
+    }
   }
 }
