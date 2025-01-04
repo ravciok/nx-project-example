@@ -1,1 +1,13 @@
-<p>PageOffboarding works!</p>
+<h2>{{ title() }}</h2>
+
+<nav mat-tab-nav-bar [tabPanel]="tabPanel">
+  @for (tab of tabs(); track tab.path) {
+    <a mat-tab-link
+       [routerLink]="tab.path"
+       routerLinkActive #rla="routerLinkActive"
+       [active]="rla.isActive"> {{ tab.title }} </a>
+  }
+</nav>
+<mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
+
+<router-outlet></router-outlet>

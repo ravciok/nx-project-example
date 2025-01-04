@@ -1,0 +1,29 @@
+{
+  "name": "util-routing",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/util-routing/src",
+  "prefix": "lib",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "libs/util-routing/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/util-routing/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/util-routing/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,4 +8,6 @@ import { CommonModule } from '@angular/common';
   styleUrl: './page-onboarding.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PageOnboardingComponent {}
+export class PageOnboardingComponent {
+  readonly title = input<string>();
+}

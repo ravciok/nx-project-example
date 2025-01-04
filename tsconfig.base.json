@@ -19,6 +19,9 @@
       "@nx-project-example/feature-employees": [
         "libs/feature-employees/src/index.ts"
       ],
+      "@nx-project-example/feature-equipments": [
+        "libs/feature-equipments/src/index.ts"
+      ],
       "@nx-project-example/feature-users": ["libs/feature-users/src/index.ts"],
       "@nx-project-example/page-offboarding": [
         "libs/page-offboarding/src/index.ts"
@@ -26,7 +29,9 @@
       "@nx-project-example/page-onboarding": [
         "libs/page-onboarding/src/index.ts"
       ],
-      "@nx-project-example/ui-table": ["libs/ui-table/src/index.ts"]
+      "@nx-project-example/ui-layout": ["libs/ui-layout/src/index.ts"],
+      "@nx-project-example/ui-table": ["libs/ui-table/src/index.ts"],
+      "@nx-project-example/util-routing": ["libs/util-routing/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

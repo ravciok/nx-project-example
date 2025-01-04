@@ -2,10 +2,10 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'lib-ui-table',
+  selector: 'lib-ui-container',
   imports: [CommonModule],
-  templateUrl: './ui-table.component.html',
-  styleUrl: './ui-table.component.scss',
+  templateUrl: './ui-container.component.html',
+  styleUrl: './ui-container.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class UiTableComponent {}
+export class UiContainerComponent {}
