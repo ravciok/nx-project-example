@@ -1,0 +1,7 @@
+@use '@angular/material' as mat;
+
+:host::ng-deep {
+  .mat-mdc-tab-nav-bar .mat-mdc-tab-link-container {
+    flex-grow: 0;
+  }
+}

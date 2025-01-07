@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@nx-project-example/contracts": ["libs/contracts/src/index.ts"],
+      "@nx-project-example/core-routing": ["libs/core-routing/src/index.ts"],
       "@nx-project-example/feature-employees": [
         "libs/feature-employees/src/index.ts"
       ],
@@ -30,8 +31,10 @@
         "libs/page-onboarding/src/index.ts"
       ],
       "@nx-project-example/ui-layout": ["libs/ui-layout/src/index.ts"],
+      "@nx-project-example/ui-panel": ["libs/ui-panel/src/index.ts"],
       "@nx-project-example/ui-table": ["libs/ui-table/src/index.ts"],
-      "@nx-project-example/util-routing": ["libs/util-routing/src/index.ts"]
+      "@nx-project-example/util-routing": ["libs/util-routing/src/index.ts"],
+      "@nx-project-example/util-state": ["libs/util-state/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

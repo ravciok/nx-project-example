@@ -1,5 +1,11 @@
-import { Body, Controller, HttpStatus, Param, Post, Res } from '@nestjs/common';
-import { Status, UserOffboardActionBody } from '@nx-project-example/contracts';
+import {
+  BadRequestException,
+  Body,
+  Controller,
+  Param,
+  Post,
+} from '@nestjs/common';
+import { Status, UserOffboardActionBodyContract } from '@nx-project-example/contracts';
 import { EmployeesService } from '../employees/employees.service';
 
 @Controller('users/:id')
@@ -8,9 +14,8 @@ export class UsersController {
 
   @Post('offboard')
   async offboardAction(
-    @Res() res,
     @Param('id') id: string,
-    @Body() body: UserOffboardActionBody
+    @Body() body: UserOffboardActionBodyContract
   ) {
     console.log('body:', body);
 
@@ -19,9 +24,9 @@ export class UsersController {
     });
 
     if (employee === undefined) {
-      res.status(HttpStatus.BAD_REQUEST).send();
+      throw new BadRequestException(`Employee with id: ${id} doesn't exists`);
     } else {
-      res.status(HttpStatus.OK).end();
+      return {};
     }
   }
 }

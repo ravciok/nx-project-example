@@ -1,3 +1,2 @@
-
-export * from './lib/employees';
-export * from './lib/users';
+export * from './lib/employees.contract';
+export * from './lib/users.contract';

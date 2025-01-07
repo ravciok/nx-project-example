@@ -1,0 +1,38 @@
+.mat-mdc-row {
+  &:hover > .mat-mdc-cell {
+    background: white;
+  }
+
+  & > .mat-mdc-cell {
+    cursor: pointer;
+  }
+}
+
+.container-filter {
+  position: relative;
+
+  & > .mat-mdc-form-field {
+    position: absolute;
+    top: -56px;
+    right: 0;
+    z-index: 10;
+    width: 300px;
+  }
+}
+
+.container-table {
+  height: 65vh;
+  overflow: auto;
+  background-color: var(--mat-table-background-color, var(--mat-sys-surface));
+}
+
+.container-spinner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+
+th, td {
+  width: 20%;
+}
+

@@ -1,0 +1,26 @@
+:host {
+  display: flex;
+  flex: 0 1 50%;
+}
+
+.data {
+  &-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+    flex-grow: 1;
+  }
+  &-label {
+    width: 20%;
+    text-align: right;
+    padding: 0 1rem;
+    &:empty {
+      display: none;
+    }
+  }
+  &-value {
+    font-weight: bold;
+    width: 80%;
+    padding: 0 1rem;
+  }
+}

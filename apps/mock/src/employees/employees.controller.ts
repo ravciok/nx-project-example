@@ -1,4 +1,4 @@
-import { Controller, Get, HttpStatus, Param, Res } from '@nestjs/common';
+import { Controller, Get, NotFoundException, Param } from '@nestjs/common';
 import { EmployeesService } from './employees.service';
 
 @Controller('employees')
@@ -11,13 +11,13 @@ export class EmployeesController {
   }
 
   @Get(':id')
-  findOne(@Res() res, @Param('id') id: string) {
+  findOne(@Param('id') id: string) {
     const employee = this.employeesService.findOne(id);
 
     if (employee === undefined) {
-      res.status(HttpStatus.NOT_FOUND).send();
-    } else {
-      res.status(HttpStatus.OK).json(employee).send();
+      throw new NotFoundException(`Employee with id: ${id} doesn't exists`);
     }
+
+    return employee;
   }
 }

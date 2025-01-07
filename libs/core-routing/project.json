@@ -1,0 +1,29 @@
+{
+  "name": "core-routing",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/core-routing/src",
+  "prefix": "lib",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "libs/core-routing/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/core-routing/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/core-routing/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

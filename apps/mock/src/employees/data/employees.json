@@ -2084,7 +2084,7 @@
     "id": "e130",
     "name": "Employee 130",
     "department": "Sales",
-    "status": "ACTIVE",
+    "status": "OFFBOARDED",
     "email": "employee.130@example.com",
     "equipments": [
       {

@@ -1,0 +1,14 @@
+.form-row {
+  display: flex;
+  margin: 0 -.5rem;
+
+  mat-form-field {
+    flex-grow: 1;
+    margin: 0 .5rem;
+  }
+}
+
+
+.content {
+  margin: 0 auto;
+}

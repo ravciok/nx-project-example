@@ -9,5 +9,5 @@ import { CommonModule } from '@angular/common';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PageOnboardingComponent {
-  readonly title = input<string>();
+  title = input<string>();
 }

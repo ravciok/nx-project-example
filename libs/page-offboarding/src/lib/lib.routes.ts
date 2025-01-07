@@ -20,7 +20,7 @@ export const pageOffboardingRoutes: Route[] = [
         },
         loadComponent: () =>
           import('@nx-project-example/feature-employees').then(
-            (c) => c.FeatureEmployeesComponent
+            (c) => c.FeatureEmployeesListComponent
           ),
       },
       {
@@ -35,5 +35,12 @@ export const pageOffboardingRoutes: Route[] = [
       },
       { path: '', redirectTo: 'employees', pathMatch: 'full' },
     ],
+  },
+  {
+    path: 'employees/:id',
+    loadChildren: () =>
+      import('@nx-project-example/feature-employees').then(
+        (c) => c.employeeDetailsRoutes
+      ),
   },
 ];

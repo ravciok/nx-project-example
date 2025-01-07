@@ -1,0 +1,10 @@
+@if (employeesList().length) {
+  <lib-ui-table
+    [data]="employeesList()"
+    [columns]="columns"
+    (rowAction)="handleRowAction($event)"></lib-ui-table>
+} @else {
+  <div class="container-spinner">
+    <mat-spinner></mat-spinner>
+  </div>
+}

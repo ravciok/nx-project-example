@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonModule } from '@angular/material/button';
+import { TabsOnRouting } from '@nx-project-example/util-routing';
 
 @Component({
   selector: 'lib-page-offboarding',
@@ -23,6 +24,6 @@ import { MatButtonModule } from '@angular/material/button';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PageOffboardingComponent {
-  readonly title = input<string>();
-  readonly tabs = input<{ path: string; title: string }[]>();
+  title = input<string>();
+  tabs = input<TabsOnRouting>();
 }

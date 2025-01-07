@@ -1,31 +1,31 @@
 import { Injectable } from '@nestjs/common';
 import {
-  EmployeeDetailsBody,
-  EmployeeDetailsResponse,
-  EmployeesResponse
+  EmployeeDetailsBodyContract,
+  EmployeeDetailsResponseContract,
+  EmployeesResponseContract,
 } from '@nx-project-example/contracts';
 import * as MOCKED_EMPLOYEES from './data/employees.json';
 import { writeFile } from 'ng-packagr/lib/utils/fs';
 import { join } from 'path';
 
-const mockedEmployees = MOCKED_EMPLOYEES as EmployeesResponse;
+const mockedEmployees = MOCKED_EMPLOYEES as EmployeesResponseContract;
 
 @Injectable()
 export class EmployeesService {
-  findAll(): EmployeesResponse {
-    return mockedEmployees;
+  findAll(): EmployeesResponseContract {
+    return Array.from(mockedEmployees);
   }
 
-  findOne(id: string): EmployeeDetailsResponse | undefined {
-    return Object.values(mockedEmployees).find(
+  findOne(id: string): EmployeeDetailsResponseContract | undefined {
+    return Array.from(mockedEmployees).find(
       (employee) => employee.id === id
     );
   }
 
   async updateOne(
     id: string,
-    body: Partial<EmployeeDetailsBody>
-  ): Promise<EmployeeDetailsResponse | undefined> {
+    body: Partial<EmployeeDetailsBodyContract>
+  ): Promise<EmployeeDetailsResponseContract | undefined> {
     const employees = Array.from(mockedEmployees);
     const employee = employees.find((employee) => employee.id === id);
 
@@ -36,7 +36,7 @@ export class EmployeesService {
 
       await writeFile(
         join(process.cwd(), 'apps/mock/src/employees/data', 'employees.json'),
-        JSON.stringify(employees, null, 2)
+        JSON.stringify(employees satisfies EmployeesResponseContract, null, 2)
       );
 
       return employee;

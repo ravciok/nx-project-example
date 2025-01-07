@@ -1,0 +1,39 @@
+<div class="section">
+  <button mat-button (click)="backToListAction()">
+    <mat-icon>arrow_back</mat-icon>
+    Back
+  </button>
+</div>
+
+<div class="section section-header">
+  <h2>{{ details()!.name }}</h2>
+  <button mat-flat-button (click)="openDialog()" [disabled]="!details()!.isOffboardAvailable">Offboard</button>
+</div>
+
+<div class="section">
+  <lib-ui-panel title="Employee details" [horizontalDirection]="true">
+    <lib-ui-data-presentation>
+      <label>Full Name</label>
+      {{ details()!.name }}
+    </lib-ui-data-presentation>
+    <lib-ui-data-presentation>
+      <label>Department</label>
+      {{ details()!.department }}
+    </lib-ui-data-presentation>
+    <lib-ui-data-presentation>
+      <label>Email</label>
+      {{ details()!.email }}
+    </lib-ui-data-presentation>
+  </lib-ui-panel>
+</div>
+
+<div class="section">
+  <lib-ui-panel title="Equipment">
+    @for (equipment of details()?.equipments; track equipment.id) {
+      <lib-ui-data-presentation>
+        {{ equipment.name }}
+      </lib-ui-data-presentation>
+    }
+  </lib-ui-panel>
+</div>
+
