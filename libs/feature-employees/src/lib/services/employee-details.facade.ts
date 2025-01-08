@@ -40,33 +40,44 @@ export class EmployeeDetailsFacade {
       receiver: new FormControl('', [
         Validators.required,
         Validators.minLength(5),
+        Validators.maxLength(100),
       ]),
-      email: new FormControl('', [Validators.required, Validators.email]),
+      email: new FormControl('', [
+        Validators.required,
+        Validators.email,
+        Validators.minLength(5),
+        Validators.maxLength(100),
+      ]),
       phone: new FormControl('', [
         Validators.required,
         Validators.minLength(5),
+        Validators.maxLength(20),
+        Validators.pattern('[0-9]{5,20}')
       ]),
       address: new FormGroup({
         streetLine: new FormControl('', [
           Validators.required,
-          Validators.minLength(5),
+          Validators.minLength(3),
+          Validators.maxLength(100),
         ]),
         city: new FormControl('', [
           Validators.required,
-          Validators.minLength(5),
+          Validators.minLength(3),
+          Validators.maxLength(100),
         ]),
         postalCode: new FormControl('', [
           Validators.required,
           Validators.minLength(5),
+          Validators.maxLength(100),
+          Validators.pattern('^[0-9]{2}-[0-9]{3}$'),
         ]),
         country: new FormControl('', [
           Validators.required,
-          Validators.minLength(5),
+          Validators.minLength(3),
+          Validators.maxLength(100),
         ]),
       }),
-      notes: new FormControl('', [
-        Validators.minLength(5),
-      ]),
+      notes: new FormControl('', [Validators.maxLength(220)]),
     });
   }
 }
