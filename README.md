@@ -1,9 +1,9 @@
 # NxProjectExample
 
-To run project:
-* enable `pnpm` which is part of nodejs since v16 by `corepack enable pnpm`
+Run project in couple simple steps:
+* enable `pnpm` which is part of nodejs since @16 by `corepack enable pnpm`
 * install deps by `pnpm i`
-* to run project simply type `pnpm nx run-many serve`
+* simply type `pnpm nx run-many -t serve` to serve everything
 * to quickly visualize dependencies in app run `pnpm nx graph`
 
 and have fun :beer:
