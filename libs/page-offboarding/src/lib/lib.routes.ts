@@ -18,9 +18,9 @@ export const pageOffboardingRoutes: Route[] = [
         data: {
           title: 'Employees',
         },
-        loadComponent: () =>
+        loadChildren: () =>
           import('@nx-project-example/feature-employees').then(
-            (c) => c.FeatureEmployeesListComponent
+            (c) => c.employeeListRoutes
           ),
       },
       {

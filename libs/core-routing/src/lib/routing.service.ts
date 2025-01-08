@@ -2,9 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { Routes } from './routes';
 import { Router } from '@angular/router';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class RoutingService {
   private router = inject(Router);
 

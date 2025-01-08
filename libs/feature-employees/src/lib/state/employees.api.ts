@@ -6,9 +6,7 @@ import {
 } from '@nx-project-example/contracts';
 import { Observable } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class EmployeesApi {
   private http = inject(HttpClient);
 

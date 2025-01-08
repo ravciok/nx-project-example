@@ -5,9 +5,7 @@ import {
   UserOffboardActionBodyContract,
 } from '@nx-project-example/contracts';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class UsersApi {
   private http = inject(HttpClient);
 

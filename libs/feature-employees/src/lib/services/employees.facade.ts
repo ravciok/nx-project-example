@@ -1,9 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { Routes, RoutingService } from '@nx-project-example/core-routing';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class EmployeesFacade {
   private routingService = inject(RoutingService);
 

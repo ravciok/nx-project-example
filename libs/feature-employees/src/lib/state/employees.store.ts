@@ -14,9 +14,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Routes, RoutingService } from '@nx-project-example/core-routing';
 import { AbstractStore } from '@nx-project-example/util-state';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class EmployeesStore extends AbstractStore {
   protected api = inject(EmployeesApi);
   protected state = inject(EmployeesState);
@@ -87,7 +85,7 @@ export class EmployeesStore extends AbstractStore {
               { duration: 5000, verticalPosition: 'top' }
             );
             this.routingService.goTo(Routes.OFFBOARDING_EMPLOYEES);
-            
+
             throw error.message;
           }),
           employeeDetailsModelAdapter(),

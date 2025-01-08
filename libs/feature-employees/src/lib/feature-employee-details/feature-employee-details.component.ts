@@ -22,6 +22,7 @@ import { UiDataPresentationComponent, UiPanelComponent } from '@nx-project-examp
     UiPanelComponent,
     UiDataPresentationComponent,
   ],
+  providers: [EmployeeDetailsFacade],
   templateUrl: './feature-employee-details.component.html',
   styleUrl: './feature-employee-details.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

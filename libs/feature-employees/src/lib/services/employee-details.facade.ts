@@ -7,9 +7,7 @@ import { EmployeesStore } from '../state/employees.store';
 import { EmployeesActions } from '../state/employees.actions';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class EmployeeDetailsFacade {
   private store = inject(EmployeesStore);
   private routingService = inject(RoutingService);

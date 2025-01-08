@@ -15,6 +15,7 @@ import { EmployeesFacade } from '../services/employees.facade';
 @Component({
   selector: 'lib-feature-employees-list',
   imports: [CommonModule, UiTableComponent, MatProgressSpinner],
+  providers: [EmployeesFacade],
   templateUrl: './feature-employees-list.component.html',
   styleUrl: './feature-employees-list.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
