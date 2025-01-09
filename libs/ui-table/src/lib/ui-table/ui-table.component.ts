@@ -2,8 +2,11 @@ import {
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
-  input,
   computed,
+  effect,
+  inject,
+  Injector,
+  input,
   output,
   ViewChild,
 } from '@angular/core';
@@ -32,7 +35,6 @@ import { MatProgressSpinner } from '@angular/material/progress-spinner';
 export class UiTableComponent<T> implements AfterViewInit {
   data = input<T[]>([]);
   columns = input<ColumnsConfig>([]);
-
   rowAction = output<T>();
 
   displayedColumns = computed(() =>
@@ -40,12 +42,19 @@ export class UiTableComponent<T> implements AfterViewInit {
   );
   dataSource = computed(() => new MatTableDataSource(this.data()));
 
+  private injector = inject(Injector);
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
   ngAfterViewInit() {
-    this.dataSource().paginator = this.paginator;
-    this.dataSource().sort = this.sort;
+    effect(
+      () => {
+        this.dataSource().paginator = this.paginator;
+        this.dataSource().sort = this.sort;
+      },
+      { injector: this.injector }
+    );
   }
 
   applyFilter(event: Event) {

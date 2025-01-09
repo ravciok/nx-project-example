@@ -9,12 +9,11 @@ import {
   EmployeesActions,
   EmployeesSelectors,
 } from '../state/employees.actions';
-import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { EmployeesFacade } from '../services/employees.facade';
 
 @Component({
   selector: 'lib-feature-employees-list',
-  imports: [CommonModule, UiTableComponent, MatProgressSpinner],
+  imports: [CommonModule, UiTableComponent],
   providers: [EmployeesFacade],
   templateUrl: './feature-employees-list.component.html',
   styleUrl: './feature-employees-list.component.scss',
