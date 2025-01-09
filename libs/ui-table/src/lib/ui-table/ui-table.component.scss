@@ -26,10 +26,11 @@
   background-color: var(--mat-table-background-color, var(--mat-sys-surface));
 }
 
-.container-spinner {
+.container-message {
   position: absolute;
   left: 50%;
   top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 th, td {

@@ -16,6 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@nx-project-example/contracts": ["libs/contracts/src/index.ts"],
+      "@nx-project-example/core-api": ["libs/core-api/src/index.ts"],
+      "@nx-project-example/core-loader": ["libs/core-loader/src/index.ts"],
       "@nx-project-example/core-routing": ["libs/core-routing/src/index.ts"],
       "@nx-project-example/feature-employees": [
         "libs/feature-employees/src/index.ts"

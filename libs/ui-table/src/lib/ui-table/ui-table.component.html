@@ -18,9 +18,9 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns(); sticky: true"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns()" (click)="handleRowAction(row)"></tr>
 
-      <div class="container-spinner" *matNoDataRow>
+      <div class="container-message" *matNoDataRow>
         @if (!data().length) {
-          <mat-spinner></mat-spinner>
+          <p>No data loaded yet.</p>
         } @else {
           <p>No data matching the filter.</p>
         }

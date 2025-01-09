@@ -16,7 +16,6 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ColumnsConfig } from './ui-table.model';
-import { MatProgressSpinner } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'lib-ui-table',
@@ -26,7 +25,6 @@ import { MatProgressSpinner } from '@angular/material/progress-spinner';
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
-    MatProgressSpinner,
   ],
   templateUrl: './ui-table.component.html',
   styleUrl: './ui-table.component.scss',
