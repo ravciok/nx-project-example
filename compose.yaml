@@ -1,0 +1,45 @@
+services:
+  server:
+    build:
+      context: .
+      dockerfile: apps/mock/Dockerfile
+    container_name: server
+    environment:
+      - CI=true
+    networks:
+      - frontend-network
+
+  client:
+    build:
+      context: .
+      dockerfile: apps/client/Dockerfile
+    container_name: client
+    environment:
+      - CI=true
+    networks:
+      - frontend-network
+    volumes:
+      - www:/usr/share/nginx/html
+    depends_on:
+      - server
+
+  proxy:
+    build:
+      context: .
+      dockerfile: apps/proxy/Dockerfile
+    container_name: proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - frontend-network
+    volumes:
+      - www:/usr/share/nginx/html
+    depends_on:
+      - client
+
+volumes:
+  www:
+networks:
+  frontend-network:
+    driver: bridge
