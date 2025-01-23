@@ -4,8 +4,6 @@ services:
       context: .
       dockerfile: apps/mock/Dockerfile
     container_name: server
-    environment:
-      - CI=true
     networks:
       - frontend-network
 
@@ -14,8 +12,6 @@ services:
       context: .
       dockerfile: apps/client/Dockerfile
     container_name: client
-    environment:
-      - CI=true
     networks:
       - frontend-network
     volumes:
