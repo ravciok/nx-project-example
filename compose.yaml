@@ -3,6 +3,7 @@ services:
     build:
       context: .
       dockerfile: apps/mock/Dockerfile
+    image: ravciok/nx-project-example-server
     container_name: server
     networks:
       - frontend-network
@@ -11,11 +12,12 @@ services:
     build:
       context: .
       dockerfile: apps/client/Dockerfile
+    image: ravciok/nx-project-example-client
     container_name: client
     networks:
       - frontend-network
     volumes:
-      - www:/usr/share/nginx/html
+      - www:/usr/share/nginx
     depends_on:
       - server
 
@@ -23,6 +25,7 @@ services:
     build:
       context: .
       dockerfile: apps/proxy/Dockerfile
+    image: ravciok/nx-project-example-proxy
     container_name: proxy
     ports:
       - "80:80"
@@ -30,7 +33,7 @@ services:
     networks:
       - frontend-network
     volumes:
-      - www:/usr/share/nginx/html
+      - www:/usr/share/nginx
     depends_on:
       - client
 

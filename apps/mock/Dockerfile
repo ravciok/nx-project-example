@@ -2,8 +2,7 @@ FROM node:22-slim AS base
 WORKDIR /app
 
 FROM base AS prod-deps
-COPY package.json package-lock.json /app/
-RUN npm i --omit=dev
+RUN npm i @nestjs/common@^10.0.2 @nestjs/core@^10.0.2 @nestjs/platform-express@^10.0.2 tslib@^2.3.0 ng-packagr@~19.0.0
 
 FROM base AS deps
 COPY package.json package-lock.json /app/

@@ -11,4 +11,5 @@ COPY . .
 RUN npx nx build client
 
 FROM nginx:1-alpine-slim AS release
-COPY --from=build /app/dist/apps/client/browser /usr/share/nginx/html
+RUN mkdir -p /usr/share/nginx/nx-project-example/html
+COPY --from=build /app/dist/apps/client/browser /usr/share/nginx/nx-project-example/html
